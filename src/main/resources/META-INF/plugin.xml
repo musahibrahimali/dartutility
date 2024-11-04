@@ -1,18 +1,37 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
-<idea-plugin>
+<idea-plugin >
     <id>com.github.softwarearoma.dartutility</id>
     <name>dartutility</name>
     <vendor>softwarearoma</vendor>
+    <version>1.0.1</version>
+
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.softwarearoma.dartutility.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
+    <!-- Define actions for right-click menu -->
+    <actions>
+        <group id="dartutility" popup="true" text="Dartutility">
+            <add-to-group group-id="ProjectViewPopupMenuRefactoringGroup" anchor="last"/>
+        </group>
 
-    <applicationListeners>
-        <listener class="com.github.softwarearoma.dartutility.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+        <!-- Action for generating index.dart for current folder only -->
+        <action id="com.github.softwarearoma.dartutility.GenerateIndex"
+                class="com.github.softwarearoma.dartutility.actions.GenerateIndexAction"
+                text="Generate index.dart"
+                description="Generate index.dart for this folder only">
+            <!-- Add action to the context menu of directories in Project view -->
+            <add-to-group group-id="dartutility" anchor="last"/>
+        </action>
+
+        <!-- Action for generating iterable index.dart for the folder and its subfolders -->
+        <action id="com.github.softwarearoma.dartutility.GenerateIterableIndex"
+                class="com.github.softwarearoma.dartutility.actions.GenerateIterableIndexAction"
+                text="Generate Iterable index.dart"
+                description="Generate index.dart with subfolders">
+            <!-- Add action to the context menu of directories in Project view -->
+            <add-to-group group-id="dartutility" anchor="last"/>
+        </action>
+    </actions>
+
 </idea-plugin>
