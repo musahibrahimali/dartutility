@@ -19,7 +19,8 @@ class GenerateIterableIndexAction : AnAction("Generate Iterable Index") {
 
     private fun generateIndexFilesRecursively(folder: File) {
         val dartFiles = folder.listFiles { file ->
-            file.extension == "dart" && file.name != "index.dart" // Exclude any existing index.dart
+            file.extension == "dart" && file.name != "index.dart" && !file.name.matches(Regex(".*\\..+\\.dart"))
+//            file.extension == "dart" && file.name != "index.dart" // Exclude any existing index.dart
         } ?: return
 
         val indexFile = File(folder, "index.dart")
