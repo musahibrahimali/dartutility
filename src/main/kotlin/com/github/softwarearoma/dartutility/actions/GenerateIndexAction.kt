@@ -19,7 +19,9 @@ class GenerateIndexAction : AnAction("Generate Index") {
     }
 
     private fun generateIndexFile(folder: File) {
-        val dartFiles = folder.listFiles { file -> file.extension == "dart" } ?: return
+        val dartFiles = folder.listFiles {
+            file -> file.extension == "dart" && file.name != "index.dart" &&  !file.name.matches(Regex(".*\\..+\\.dart"))
+        } ?: return
         val indexFile = File(folder, "index.dart")
         indexFile.writeText("") // Clear existing contents
 
