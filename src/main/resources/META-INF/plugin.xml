@@ -1,15 +1,26 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
-<idea-plugin >
+<idea-plugin>
     <id>com.github.softwarearoma.dartutility</id>
-    <name>dartutility</name>
-    <vendor>softwarearoma</vendor>
-    <version>1.0.1</version>
+    <name>Dart Utility</name>
+    <vendor email="musahibrahimali@gmail.com" url="https://github.com/musahibrahimali/dartutility">softwarearoma</vendor>
+    <version>0.0.5</version>
 
+    <description><![CDATA[
+    Utility plugin for Dart and Flutter projects. Automatically generates index.dart barrel files.
+
+    Features:
+    - Generate index files for single directories
+    - Generate index files recursively
+    ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
+<!--    <depends>Dart</depends>-->
+<!--    <depends>io.Flutter</depends>-->
 
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Dart Utility"
+            displayType="BALLOON"/>
+    </extensions>
 
-    <!-- Define actions for right-click menu -->
     <actions>
         <group id="dartutility" popup="true" text="Dartutility">
             <add-to-group group-id="ProjectViewPopupMenuRefactoringGroup" anchor="last"/>
@@ -17,21 +28,25 @@
 
         <!-- Action for generating index.dart for current folder only -->
         <action id="com.github.softwarearoma.dartutility.GenerateIndex"
-                class="com.github.softwarearoma.dartutility.actions.GenerateIndexAction"
-                text="Generate index.dart"
-                description="Generate index.dart for this folder only">
+            class="com.github.softwarearoma.dartutility.actions.GenerateIndexAction"
+            text="Generate index.dart"
+            icon="AllIcons.Actions.Lightning"
+            description="Generate index.dart for this folder only">
+
             <!-- Add action to the context menu of directories in Project view -->
             <add-to-group group-id="dartutility" anchor="last"/>
         </action>
 
         <!-- Action for generating iterable index.dart for the folder and its subfolders -->
-        <action id="com.github.softwarearoma.dartutility.GenerateIterableIndex"
-                class="com.github.softwarearoma.dartutility.actions.GenerateIterableIndexAction"
-                text="Generate Iterable index.dart"
-                description="Generate index.dart with subfolders">
+        <action
+            id="com.github.softwarearoma.dartutility.GenerateIterableIndex"
+            class="com.github.softwarearoma.dartutility.actions.GenerateIterableIndexAction"
+            text="Generate Recursive Index"
+            description="Generate index.dart for folder and subfolders"
+            icon="AllIcons.Actions.Lightning">
             <!-- Add action to the context menu of directories in Project view -->
             <add-to-group group-id="dartutility" anchor="last"/>
         </action>
-    </actions>
 
+    </actions>
 </idea-plugin>
