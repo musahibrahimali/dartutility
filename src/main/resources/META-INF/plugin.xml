@@ -2,7 +2,7 @@
     <id>com.github.softwarearoma.dartutility</id>
     <name>Dart Utility</name>
     <vendor email="musahibrahimali@gmail.com" url="https://github.com/musahibrahimali/dartutility">softwarearoma</vendor>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 
     <description><![CDATA[
     Utility plugin for Dart and Flutter projects. Automatically generates index.dart barrel files.

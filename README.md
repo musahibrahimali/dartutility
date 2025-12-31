@@ -1,6 +1,6 @@
 # dartutility
 
-![Build](https://github.com/SoftwareAroma/dartutility/workflows/Build/badge.svg)
+![Build](https://github.com/musahibrahimali/dartutility/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/25756.svg)](https://plugins.jetbrains.com/plugin/25756)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/25756.svg)](https://plugins.jetbrains.com/plugin/25756)
 
@@ -32,3 +32,9 @@ Simple yet useful utility tools for Flutter developers | Auto generator for inde
 
   Download the [latest release](https://github.com/SoftwareAroma/dartutility/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+
+
+## Build command on Mac
+```bash 
+JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew buildPlugin
+```
